@@ -45,7 +45,6 @@ class _MyHomePageState extends State<MyHomePage> {
  static double birdXAxisOne = 0;
  double birdXAxisTwo = birdXAxisOne + 4;
  double birdXAxisThree = birdXAxisOne + 8;
- int speed = 150;
 
  @override
   void initState() {
@@ -70,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void startGame() {
     gameStarted = true;
     score = 0;
-    Timer.periodic(Duration(milliseconds: speed),(timer) {
+    Timer.periodic(Duration(milliseconds: 100),(timer) {
       setState(() {
         time += 0.04;
         height = -4.9 * time * time + 2.8 * time;
@@ -94,7 +93,6 @@ class _MyHomePageState extends State<MyHomePage> {
         }
 
         if(birdXAxisOne == 0 ) {
-          speed --;
           if(birdYAxis > 0.25 || birdYAxis < -0.25) {
                  setCancel(timer);
           } else {
@@ -103,7 +101,6 @@ class _MyHomePageState extends State<MyHomePage> {
         }
 
         if(birdXAxisTwo == 0 ) {
-          speed --;
           if(birdYAxis > 0.1 || birdYAxis < -0.4) {
                setCancel(timer);
           }else {
@@ -112,7 +109,6 @@ class _MyHomePageState extends State<MyHomePage> {
         }
 
         if(birdXAxisThree == 0 ) {
-          speed --;
           if(birdYAxis > 0.35 || birdYAxis < -0.15) {
                setCancel(timer);
           }else {
